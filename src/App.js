@@ -1,20 +1,28 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <AuthProvider>
-      <Container
-        className='d-flex align-items-center justify-content-center'
-        style={{ minHeight: '100vh' }}
-      >
-        <div className='w-100' style={{ maxWidth: '400px' }}>
-          <SignUp />
-        </div>
-      </Container>
-    </AuthProvider>
+    <Container
+      className='d-flex align-items-center justify-content-center'
+      style={{ minHeight: '100vh' }}
+    >
+      <div className='w-100' style={{ maxWidth: '400px' }}>
+        <Router>
+          <Switch>
+            <AuthProvider>
+              {/* <Route path='/' component={Dashboard} /> */}
+              <Route path='/signup' component={SignUp} />
+              <Route path='/login' component={Login} />
+            </AuthProvider>
+          </Switch>
+        </Router>
+      </div>
+    </Container>
   );
 }
 
