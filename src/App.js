@@ -8,13 +8,15 @@ import Profile from './components/Authentication/Profile';
 import PrivateRoute from './components/Authentication/PrivateRoute';
 import ForgotPassword from './components/Authentication/ForgotPassword';
 import UpdateProfile from './components/Authentication/UpdateProfile';
+import Dashboard from './components/google-drive/Dashboard';
 
 function App() {
   return (
     <Router>
       <Switch>
         <AuthProvider>
-          <PrivateRoute exact path='/' component={Profile} />z
+          <PrivateRoute path='/' component={Dashboard} />
+          <PrivateRoute exact path='/user' component={Profile} />
           <PrivateRoute path='/update-profile' component={UpdateProfile} />
           <Route path='/signup' component={SignUp} />
           <Route path='/login' component={Login} />
