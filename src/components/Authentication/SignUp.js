@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
+import Container from './CenterContainer';
 
 function SignUp() {
   const emailRef = useRef();
@@ -35,7 +36,7 @@ function SignUp() {
   }
 
   return (
-    <>
+    <Container>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Sign Up</h2>
@@ -64,7 +65,7 @@ function SignUp() {
       <div className='w-100 text-center mt-2'>
         Already have an account ? <Link to='/login'>Log In</Link>
       </div>
-    </>
+    </Container>
   );
 }
 
